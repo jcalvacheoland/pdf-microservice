@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    // Paths
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    // Environment
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "target": "ES2020",
+    "lib": ["esnext"],
+    "types": ["node"],
+
+    // Needed for Express and CommonJS compatibility
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+
+    // Output
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    // Strict mode
+    "strict": true,
+
+    // Misc
+    "skipLibCheck": true
+  },
+  "include": ["src"]
+}
