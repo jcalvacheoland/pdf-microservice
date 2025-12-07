@@ -6,6 +6,8 @@ import { uploadPdfToAzure } from "./uploadToAzure";
 const app = express();
 app.use(express.json({ limit: "10mb" }));
 
+
+
 app.post("/api/pdf", async (req: Request, res: Response) => {
   try {
     const { html, options } = req.body;
@@ -35,5 +37,7 @@ app.post("/api/pdf", async (req: Request, res: Response) => {
   }
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`PDF service running on port ${PORT}`));
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Servidor escuchando en el puerto ${port}`);
+});

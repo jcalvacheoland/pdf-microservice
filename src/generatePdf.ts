@@ -2,6 +2,7 @@ import playwright from "playwright";
 
 export async function generatePdf(html: string, options: any = {}) {
   const browser = await playwright.chromium.launch({
+    headless: true,
     args: ["--no-sandbox", "--disable-setuid-sandbox"]
   });
 
