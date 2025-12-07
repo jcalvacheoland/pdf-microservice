@@ -1,5 +1,5 @@
 trigger:
-- main
+- master
 
 variables:
   dockerRegistryServiceConnection: 'pdf-acr-connection'
@@ -60,4 +60,7 @@ stages:
             inputs:
               azureSubscription: $(azureSubscription)
               appName: $(appServiceName)
+              # Opción 1: desplegar la etiqueta de build específica (como tienes ahora):
               containers: '$(containerRegistry)/$(imageRepository):$(tag)'
+              # Opción 2: desplegar siempre la última versión publicada:
+              # containers: '$(containerRegistry)/$(imageRepository):latest'
