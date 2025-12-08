@@ -6,7 +6,16 @@ import { uploadPdfToAzure } from "./uploadToAzure";
 const app = express();
 app.use(express.json({ limit: "10mb" }));
 
+// 🔐 Middleware de seguridad
+app.use((req, res, next) => {
+  const token = req.headers["x-api-key"];
 
+  if (!token || token !== process.env.API_TOKEN) {
+    return res.status(403).json({ error: "Unauthorized" });
+  }
+
+  next();
+});
 
 app.post("/api/pdf", async (req: Request, res: Response) => {
   try {
