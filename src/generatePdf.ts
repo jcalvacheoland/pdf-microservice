@@ -15,6 +15,12 @@ export async function generatePdf(html: string, options: any = {}) {
     format: "A4",
     printBackground: true,
     preferCSSPageSize: true,
+    margin: {
+      top: "20px",
+      right: "20px",
+      bottom: "20px",
+      left: "20px"
+    },
     ...options
   });
 
